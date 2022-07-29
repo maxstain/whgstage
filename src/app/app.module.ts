@@ -16,11 +16,14 @@ import { PokerComponent } from './pages/poker/poker.component';
 import { BallComponent } from './pages/ball/ball.component';
 import { VirtualComponent } from './pages/virtual/virtual.component';
 import { FunComponent } from './pages/fun/fun.component';
+import { BodyComponent } from './components/body/body.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    BodyComponent,
     TopGamesComponent,
     NewGamesComponent,
     SlotsComponent,
@@ -32,7 +35,8 @@ import { FunComponent } from './pages/fun/fun.component';
     PokerComponent,
     BallComponent,
     VirtualComponent,
-    FunComponent
+    FunComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
