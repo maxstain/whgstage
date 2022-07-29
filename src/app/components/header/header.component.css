@@ -20,7 +20,7 @@ a:hover {
 span {
   color: #FCFCFC;
   padding-inline: 3rem;
-  padding-block: 1rem;
+  margin-block: 1rem;
   font-size: 20px;
 }
 
@@ -39,5 +39,6 @@ span {
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
