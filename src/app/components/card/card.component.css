@@ -1,0 +1,58 @@
+img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  background-color: antiquewhite;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 15rem;
+  height: 15rem;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  color: #FCFCFC;
+  opacity: 0.5;
+  background-color: #373737;
+  width: 100%;
+  height: 100%;
+  animation-name: anim;
+  animation-duration: 0.5s;
+}
+
+.card:hover {
+
+}
+
+span {
+  background-color: transparent;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  background-color: #8DC63F;
+  padding: .5rem;
+  color: #FCFCFC;
+  font-weight: bold;
+  font-size: large;
+  margin-inline: 1rem;
+}
+
+@keyframes anim {
+  from {
+    top: 5;
+  }
+  to {
+    top: 0;
+  }
+}
