@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { BodyComponent } from './components/body/body.component';
 import { TopGamesComponent } from './pages/top-games/top-games.component';
 import { NewGamesComponent } from './pages/new-games/new-games.component';
 import { SlotsComponent } from './pages/slots/slots.component';
@@ -22,7 +21,6 @@ import { FunComponent } from './pages/fun/fun.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    BodyComponent,
     TopGamesComponent,
     NewGamesComponent,
     SlotsComponent,
