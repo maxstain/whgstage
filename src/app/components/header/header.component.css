@@ -1,20 +1,43 @@
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #373737;
   color: #FCFCFC;
+  position: sticky;
 }
 
 a {
   color: #FCFCFC;
   text-decoration: none;
-  padding: 3rem;
-  font-weight: bold;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  font-size: 20px;
 }
 a:hover {
   background-color: #8DC63F;
 }
 
-ul {
-  list-style-type: none;
+span {
+  color: #FCFCFC;
+  padding-inline: 3rem;
+  padding-block: 1rem;
+  font-size: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #373737;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
