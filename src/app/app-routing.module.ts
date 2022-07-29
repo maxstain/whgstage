@@ -14,18 +14,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'top-games-component', component: TopGamesComponent },
-  { path: 'new-games-component', component: NewGamesComponent },
-  { path: 'ball-component', component: BallComponent },
-  { path: 'blackjack-component', component: BlackjackComponent },
-  { path: 'fun-component', component: FunComponent },
-  { path: 'jackpots-component', component: JackpotsComponent },
-  { path: 'live-component', component: LiveComponent },
-  { path: 'poker-component', component: PokerComponent },
-  { path: 'roulette-component', component: RouletteComponent },
-  { path: 'slots-component', component: SlotsComponent },
-  { path: 'table-component', component: TableComponent },
-  { path: 'virtual-component', component: VirtualComponent },
+  { path: 'top-games', component: TopGamesComponent },
+  { path: 'new-games', component: NewGamesComponent },
+  { path: 'ball', component: BallComponent },
+  { path: 'blackjack', component: BlackjackComponent },
+  { path: 'fun', component: FunComponent },
+  { path: 'jackpots', component: JackpotsComponent },
+  { path: 'live', component: LiveComponent },
+  { path: 'poker', component: PokerComponent },
+  { path: 'roulette', component: RouletteComponent },
+  { path: 'slots', component: SlotsComponent },
+  { path: 'table', component: TableComponent },
+  { path: 'virtual', component: VirtualComponent },
   { path: '**', component: TopGamesComponent },
 ];
 
