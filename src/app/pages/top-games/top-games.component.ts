@@ -1,5 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-top-games',
@@ -8,12 +9,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class TopGamesComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  cards!: any[]
+
+  constructor(private api: ApiService) { }
+
+
 
   ngOnInit(): void {
-    if (this.route) {
-
-    }
+    this.api.getCard$("top").subscribe(cards => this.cards = cards)
   }
 
 }
