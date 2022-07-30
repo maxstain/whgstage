@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { VirtualComponent } from './pages/virtual/virtual.component';
 import { TableComponent } from './pages/table/table.component';
 import { SlotsComponent } from './pages/slots/slots.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'slots', component: SlotsComponent },
   { path: 'table', component: TableComponent },
   { path: 'virtual', component: VirtualComponent },
-  { path: '**', component: TopGamesComponent },
+  { path: '', component: HomeComponent },
 ];
 
 @NgModule({

@@ -48,4 +48,12 @@ export class ApiService {
   private getCards(catId: string) {
     return this.cards.filter(({ categories }) => categories.includes(catId)).map((cards) => cards)
   }
+
+  getAllCards$() {
+    return of(this.getAllCards())
+  }
+
+  private getAllCards() {
+    return this.cards.map((cards) => cards)
+  }
 }
