@@ -1,48 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
 
-  private cards = [
-    {
-      categories: [
-        "top",
-        "slots",
-        "new"
-      ],
-      name: "The Wish Master",
-      image: "//stage.whgstage.com/scontent/images/games/NETHEWISHMASTER.jpg",
-      id: "NETHEWISHMASTER"
-    },
-    {
-      categories: [
-        "top",
-        "slots",
-        "new"
-      ],
-      name: "Aliens",
-      image: "//stage.whgstage.com/scontent/images/games/NEALIENS.jpg",
-      id: "NEALIENS"
-    },
-    {
-      categories: [
-        "top",
-        "slots",
-        "new"
-      ],
-      name: "Starburst",
-      image: "//stage.whgstage.com/scontent/images/games/NESTARBURST.jpg",
-      id: "NESTARBURST"
-    },
-  ]
+  private cards: any[]
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) {
+    this.cards = []
+  }
 
-  getCard$(catId: string) {
-    return of(this.getCards(catId))
+  getCard$(catId: Observable<string>) {
+    return catId.pipe(switchMap(id => of(this.getCards(id))))
   }
 
   private getCards(catId: string) {
@@ -54,6 +27,9 @@ export class ApiService {
   }
 
   private getAllCards() {
+    this.httpClient.get('http://stage.whgstage.com/front-end-test/games.php').subscribe((result: any) => {
+      this.cards = result;
+    })
     return this.cards.map((cards) => cards)
   }
 }

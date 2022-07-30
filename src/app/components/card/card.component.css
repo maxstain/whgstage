@@ -4,6 +4,15 @@
   height: 100%;
 }
 
+.banner {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+
 .card {
   position: relative;
   overflow: hidden;

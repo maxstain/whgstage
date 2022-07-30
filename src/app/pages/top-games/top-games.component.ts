@@ -1,3 +1,4 @@
+import { Observable, map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopGamesComponent implements OnInit {
 
-  cards!: any[]
+  cards!: Observable<any[]>
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private route: ActivatedRoute) { }
 
 
 
   ngOnInit(): void {
-    this.api.getCard$("top").subscribe(cards => this.cards = cards)
+    const catId$ = this.route.params.pipe(
+      map(params => params['catId'])
+    );
+
+    this.cards = this.api.getCard$(catId$);
   }
 
 }
