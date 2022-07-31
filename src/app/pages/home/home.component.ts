@@ -1,4 +1,3 @@
-import { ActivatedRoute } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,12 +10,10 @@ export class HomeComponent implements OnInit {
 
   cards!: any[]
 
-  constructor(private route: ActivatedRoute, private api: ApiService) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.route.params.pipe().subscribe(() => {
-      this.api.getAllCards$().subscribe(cards => this.cards = cards)
-    })
+    this.api.getAllCards$().subscribe(cards => this.cards = cards)
   }
 
 }

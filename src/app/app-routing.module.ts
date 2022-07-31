@@ -15,8 +15,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'top', component: TopGamesComponent },
-  { path: 'new', component: NewGamesComponent },
+  { path: 'top-games', component: TopGamesComponent },
+  { path: 'new-games', component: NewGamesComponent },
   { path: 'ball', component: BallComponent },
   { path: 'blackjack', component: BlackjackComponent },
   { path: 'fun', component: FunComponent },

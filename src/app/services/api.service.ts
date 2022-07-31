@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, switchMap } from 'rxjs';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +8,12 @@ import { Observable, of, switchMap } from 'rxjs';
 
 export class ApiService {
 
-  private cards: any[]
+  private cards!: any[]
 
-  constructor(private httpClient: HttpClient) {
-    this.cards = []
-  }
+  constructor(private httpClient: HttpClient) { }
 
-  getCard$(catId: Observable<string>) {
-    return catId.pipe(switchMap(id => of(this.getCards(id))))
+  getCard$(catId: string) {
+    return of(this.getCards(catId))
   }
 
   private getCards(catId: string) {

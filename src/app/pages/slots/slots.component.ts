@@ -1,5 +1,3 @@
-import { map, Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,16 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlotsComponent implements OnInit {
 
-  cards!: Observable<any[]>
+  cards!: any[]
 
-  constructor(private api: ApiService, private route: ActivatedRoute) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    const catId$ = this.route.params.pipe(
-      map(params => params['catId'])
-    );
-
-    this.cards = this.api.getCard$(catId$);
+    this.api.getCard$("slots").subscribe(cards => this.cards = cards)
   }
 
 }
