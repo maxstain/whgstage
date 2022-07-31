@@ -9,8 +9,10 @@ import { of } from 'rxjs';
 export class ApiService {
 
   private cards!: any[]
+  private jackpots!: any[]
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getCard$(catId: string) {
     return of(this.getCards(catId))
@@ -29,5 +31,18 @@ export class ApiService {
       this.cards = result;
     })
     return this.cards.map((cards) => cards)
+  }
+
+  getJackpots$() {
+    return of(this.getJackpots())
+  }
+
+  private getJackpots() {
+    this.httpClient.get('http://stage.whgstage.com/front-end-test/jackpots.php').subscribe((result: any) => {
+      this.jackpots = result;
+    })
+    this.jackpots.map((jackpots) => {
+      return this.cards.filter(({ id }) => id === jackpots.game).map((jackpots) => jackpots)
+    })
   }
 }

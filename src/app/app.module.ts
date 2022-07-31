@@ -20,6 +20,7 @@ import { BodyComponent } from './components/body/body.component';
 import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from "@angular/common/http";
+import { JackpotComponent } from './components/jackpot/jackpot.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HttpClientModule } from "@angular/common/http";
     VirtualComponent,
     FunComponent,
     CardComponent,
-    HomeComponent
+    HomeComponent,
+    JackpotComponent
   ],
   imports: [
     BrowserModule,
