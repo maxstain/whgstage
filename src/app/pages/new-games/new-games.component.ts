@@ -13,6 +13,7 @@ export class NewGamesComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getAllCards$().subscribe(cards => this.cards = cards)
     this.api.getCard$("new").subscribe(cards => this.cards = cards)
   }
 

@@ -1,5 +1,7 @@
 <div class="card">
-  <div class="banner"></div>
+  <div *ngIf="category" class="banner top-banner">
+    <span>{{ category.toUpperCase() }}</span>
+  </div>
   <img class="card-image" src="{{ card.image }}" alt="{{ card.name }}">
   <div class="description">
     <span>{{ card.name }}</span>

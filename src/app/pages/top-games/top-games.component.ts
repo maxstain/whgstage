@@ -1,5 +1,5 @@
 import { ApiService } from './../../services/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-top-games',
@@ -15,6 +15,7 @@ export class TopGamesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.api.getAllCards$().subscribe(cards => this.cards = cards)
     this.api.getCard$("top").subscribe(cards => this.cards = cards)
   }
 

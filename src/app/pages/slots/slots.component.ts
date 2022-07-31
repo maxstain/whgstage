@@ -13,6 +13,7 @@ export class SlotsComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getAllCards$().subscribe(cards => this.cards = cards)
     this.api.getCard$("slots").subscribe(cards => this.cards = cards)
   }
 
