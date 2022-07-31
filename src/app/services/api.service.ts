@@ -34,15 +34,13 @@ export class ApiService {
   }
 
   getJackpots$() {
-    return of(this.getJackpots())
+    return of(this.getJackpots()).subscribe(jackpots => this.jackpots = jackpots)
   }
 
   private getJackpots() {
     this.httpClient.get('http://stage.whgstage.com/front-end-test/jackpots.php').subscribe((result: any) => {
       this.jackpots = result;
     })
-    this.jackpots.map((jackpots) => {
-      return this.cards.filter(({ id }) => id === jackpots.game).map((jackpots) => jackpots)
-    })
+    return this.cards.map((jackpots) => jackpots)
   }
 }
