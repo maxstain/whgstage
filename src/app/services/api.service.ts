@@ -34,7 +34,7 @@ export class ApiService {
   }
 
   getJackpots$() {
-    return of(this.getJackpots()).subscribe(jackpots => this.jackpots = jackpots)
+    return of(this.getJackpots())
   }
 
   private getJackpots() {
