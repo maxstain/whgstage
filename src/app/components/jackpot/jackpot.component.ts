@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-jackpot',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JackpotComponent implements OnInit {
 
-  jackpot: any;
+  @Input() jackpot: any;
 
   constructor() { }
 

@@ -13,7 +13,7 @@ export class JackpotsComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.api.getJackpots$()
+    setInterval(() => this.api.getJackpots$(), 1000)
   }
 
 }
