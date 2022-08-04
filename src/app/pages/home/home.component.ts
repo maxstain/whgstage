@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  cards!: any[]
+  cards: any[] = []
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     this.api.getAllCards$().subscribe(cards => this.cards = cards)
+    console.log('Cards', this.cards)
   }
 
 }

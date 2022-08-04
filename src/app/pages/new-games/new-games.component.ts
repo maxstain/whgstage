@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewGamesComponent implements OnInit {
 
-  cards!: any[]
+  cards: any[] = []
 
   constructor(private api: ApiService) { }
 

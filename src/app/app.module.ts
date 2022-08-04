@@ -21,6 +21,7 @@ import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from "@angular/common/http";
 import { JackpotComponent } from './components/jackpot/jackpot.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { JackpotComponent } from './components/jackpot/jackpot.component';
     FunComponent,
     CardComponent,
     HomeComponent,
-    JackpotComponent
+    JackpotComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
