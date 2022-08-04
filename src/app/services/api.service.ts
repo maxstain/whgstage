@@ -22,24 +22,26 @@ export class ApiService {
     return this.cards.filter(({ categories }) => categories.includes(catId)).map((cards) => cards)
   }
 
-  getAllCards$(list: any[]) {
-    return of(this.getAllCards(list))
+  getAllCards$() {
+    return of(this.getAllCards())
   }
 
-  private getAllCards(list: any[]) {
+  private getAllCards() {
     this.httpClient.get('http://stage.whgstage.com/front-end-test/games.php').subscribe((result: any) => {
-      list = result;
+      this.cards = result;
+      console.log("cards: ", result)
     })
     return this.cards.map((cards) => cards)
   }
 
-  getJackpots$(list: any[]) {
-    return of(this.getJackpots(list))
+  getJackpots$() {
+    return of(this.getJackpots())
   }
 
-  private getJackpots(list: any[]) {
+  private getJackpots() {
     this.httpClient.get('http://stage.whgstage.com/front-end-test/jackpots.php').subscribe((result: any) => {
-      list = result;
+      this.jackpots = result;
+      console.log("Jackpots: ", result)
     })
     return this.cards.map((jackpots) => jackpots)
   }
