@@ -22,11 +22,12 @@ export class JackpotsComponent implements OnInit {
 
   addJackpots() {
     this.api.getAllCards$().subscribe(cards => this.cards = cards)
-    this.getJackpots$().subscribe(jackpots => this.jackpots = jackpots)
+    this.api.getJackpots$().subscribe(jackpots => this.jackpots = jackpots)
 
     this.jackpots.forEach(jackpot => {
-      this.cards.find(card => {
-        if (card.id == jackpot.game) {
+      this.cards.find((card) => {
+        console.log('list', card)
+        if (card.id === jackpot.game) {
           this.list.push({
             "id": jackpot.game,
             "name": card.name,
@@ -34,20 +35,7 @@ export class JackpotsComponent implements OnInit {
             "amount": jackpot.amount,
           })
         }
-        console.log('list', this.list)
       })
     })
-  }
-
-  getJackpots$() {
-    return of(this.getJackpots())
-  }
-
-  private getJackpots() {
-    this.httpClient.get('http://stage.whgstage.com/front-end-test/jackpots.php').subscribe((result: any) => {
-      this.jackpots = result;
-      console.log("Jackpots: ", result)
-    })
-    return this.cards.map((jackpots) => jackpots)
   }
 }
