@@ -17,7 +17,6 @@ export class JackpotsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getJackpots()
-    console.log('list', this.list)
   }
 
   getJackpots() {
@@ -36,6 +35,6 @@ export class JackpotsComponent implements OnInit {
         }
       })
     })
-    console.log('jackpots', this.jackpots)
+    console.log('jackpots', this.list)
   }
 }
