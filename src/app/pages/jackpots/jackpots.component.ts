@@ -20,12 +20,12 @@ export class JackpotsComponent implements OnInit {
   }
 
   getJackpots() {
-    this.api.getAllCards$().subscribe(games => this.games = games)
-    this.api.getJackpots$().subscribe(jackpots => this.jackpots = jackpots)
+    this.api.getAllCards$(this.games).subscribe(games => this.games = games)
+    this.api.getJackpots$(this.jackpots).subscribe(jackpots => this.jackpots = jackpots)
 
-    this.jackpots.map((e, i) => {
-      this.list = this.games.find(element => {
-        if (element.game === e.id) {
+    this.jackpots.map(e => {
+      this.games.find(element => {
+        if (element.game == e.id) {
           this.list.push({
             "id": e.id,
             "name": element.name,
