@@ -17,26 +17,25 @@ export class JackpotsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getJackpots()
+    console.log('list', this.list)
   }
 
-  async getJackpots() {
-    await this.api.getJackpots$().subscribe(jackpots => this.jackpots = jackpots)
-    await this.api.getAllCards$().subscribe(games => this.games = games)
+  getJackpots() {
+    this.api.getAllCards$().subscribe(games => this.games = games)
+    this.api.getJackpots$().subscribe(jackpots => this.jackpots = jackpots)
 
-    for (let i = 0; i < this.jackpots.length; i++) {
-      const jackpot = this.jackpots[i];
-      for (let j = 0; j < this.games.length; j++) {
-        const game = this.games[j];
-        if (jackpot.game === game.id) {
+    this.jackpots.map((e, i) => {
+      this.list = this.games.find(element => {
+        if (element.game === e.id) {
           this.list.push({
-            "id": jackpot.game,
-            "name": game.name,
-            "image": game.image,
-            "amount": jackpot.amount,
+            "id": e.id,
+            "name": element.name,
+            "image": element.image,
+            "amount": e.amount,
           })
         }
-      }
-    }
+      })
+    })
+    console.log('jackpots', this.jackpots)
   }
-
 }

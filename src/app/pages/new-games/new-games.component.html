@@ -1,3 +1,4 @@
 <div class="container">
+  <app-spinner *ngIf="cards == []"></app-spinner>
   <app-card *ngFor="let card of cards" [category]="'new'" [card]="card"></app-card>
 </div>
