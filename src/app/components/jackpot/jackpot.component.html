@@ -1,7 +1,7 @@
 <div class="card">
-  <!-- <img class="card-image" src="{{ jackpot.image }}" alt="{{ jackpot.name }}"> -->
+  <img class="card-image" src="{{ jackpot.image }}" alt="{{ jackpot.name }}">
   <div class="description">
-    <span>{{ jackpot.game  || "Game" }}</span>
+    <span>{{ jackpot.name  || "Game" }}</span>
     <span>Amount: {{ jackpot.amount  || "Amount" }}</span>
     <button>Play</button>
   </div>

@@ -29,7 +29,6 @@ export class ApiService {
   private getAllCards() {
     this.httpClient.get('http://stage.whgstage.com/front-end-test/games.php').subscribe((result: any) => {
       this.cards = result;
-      console.log("cards: ", result)
     })
     return this.cards.map((cards) => cards)
   }
@@ -41,8 +40,7 @@ export class ApiService {
   private getJackpots() {
     this.httpClient.get('http://stage.whgstage.com/front-end-test/jackpots.php').subscribe((result: any) => {
       this.jackpots = result;
-      console.log("Jackpots: ", result)
     })
-    return this.cards.map((jackpots) => jackpots)
+    return this.jackpots.map((jackpots) => jackpots)
   }
 }

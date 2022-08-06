@@ -10,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JackpotsComponent implements OnInit {
 
-  jackpots: any[] = []
-  cards: any[] = []
-  list: Jackpot[] = [
-    new Jackpot("1", "game", "image", 21503)
-  ]
+  jackpots: any[];
+  cards: any[];
+  card: any;
+  list: Jackpot[];
 
-  constructor(private api: ApiService, private httpClient: HttpClient) { }
+  constructor(private api: ApiService) {
+    this.jackpots = []
+    this.cards = []
+    this.list = []
+  }
 
   ngOnInit(): void {
     this.api.getAllCards$().subscribe(cards => this.cards = cards)
@@ -24,11 +27,12 @@ export class JackpotsComponent implements OnInit {
 
     this.jackpots.map((jackpot, i) => {
       this.cards.find(card => {
-        if (card.id == jackpot.game) {
-          this.list.push(new Jackpot(card.id, card.name, card.image, jackpot.image))
-          console.log('list', this.list)
+        if (card.id === jackpot.game) {
+          this.card = card
         }
       })
+      this.list.push(new Jackpot(this.card.id, this.card.name, this.card.image, jackpot.amount))
+      console.log('list', this.list)
     })
   }
 }

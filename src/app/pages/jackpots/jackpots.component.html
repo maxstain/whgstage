@@ -1,4 +1,6 @@
 <div class="container">
-  <app-spinner *ngIf="list == []"></app-spinner>
+  <div *ngIf="list == []">
+    <app-spinner></app-spinner>
+  </div>
   <app-jackpot *ngFor="let jackpot of list" [jackpot]="jackpot"></app-jackpot>
 </div>
