@@ -12,7 +12,9 @@ export class JackpotsComponent implements OnInit {
 
   jackpots: any[] = []
   cards: any[] = []
-  list: Jackpot[] = []
+  list: Jackpot[] = [
+    new Jackpot("1", "game", "image", 21503)
+  ]
 
   constructor(private api: ApiService, private httpClient: HttpClient) { }
 
@@ -24,9 +26,9 @@ export class JackpotsComponent implements OnInit {
       this.cards.find(card => {
         if (card.id == jackpot.game) {
           this.list.push(new Jackpot(card.id, card.name, card.image, jackpot.image))
+          console.log('list', this.list)
         }
       })
     })
-    console.log('list', this.list)
   }
 }
